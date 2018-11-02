@@ -60,7 +60,6 @@ The plugin accepts both an array or a structured object.
 
 ```yaml
 palette:
-  label: Pick a color
   type: color-palette
   options:
     - '#135fdc'
@@ -75,7 +74,6 @@ The field will use the first color of the object as the background-color.
 
 ```yaml
 palette:
-  label: Pick a color
   type: color-palette
   options:
     blue:
@@ -97,11 +95,23 @@ The display style of the color blocks, to pick from `single` or `duo` . Default 
 
 If the selected style is `duo` and the options are structured color themes, the field will use the first color of the object as the left color, and the second as the right color.
 
+```yaml
+palette:
+  type: color-palette
+  display: single
+```
+
 #### 3.3. `size`
 
 ![screenshot-size](https://user-images.githubusercontent.com/14079751/47905301-12133500-de87-11e8-85f2-6ab680cab91d.jpg)
 
 The size of the color blocks, to pick from `small`, `medium` or `large`. Default is `medium`.
+
+```yaml
+palette:
+  type: color-palette
+  size: medium
+```
 
 #### 3.4. `unset`
 
