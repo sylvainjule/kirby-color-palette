@@ -194,7 +194,7 @@ $border     = $palette['border']; #(string)
 
 #### 5.3. If the palette has been extracted from an image
 
-Both the selected color and the extracted palette are stored. The value of the field will be an array, you'll need to decode them with the `yaml` method:
+Both the selected color and the extracted palette are stored. The value of the field is an array you'll need to decode with the `yaml` method:
 
 ```php
 $palette  = $page->palette()->yaml();
