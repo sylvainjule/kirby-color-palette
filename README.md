@@ -95,7 +95,7 @@ palette:
 
 The display style of the color blocks, to pick from `single` or `duo` . Default is `single`.
 
-If the selected style is `duo` and the options are structured color themes, the field will use the first color of the object as the top-left color, and the second as the bottom-right color.
+If the selected style is `duo` and the options are structured color themes, the field will use the first color of the object as the left color, and the second as the right color.
 
 #### 3.3. `size`
 
