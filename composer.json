@@ -1,0 +1,16 @@
+{
+    "name": "sylvainjule/color-palette",
+    "description": "A color palette to pick colors from for Kirby",
+    "version": "0.0.1",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "autoload": {
+        "files": ["config.php"]
+    },
+    "authors": [
+        {
+            "name": "Sylvain Julé",
+            "email": "contact@sylvain-jule.fr"
+        }
+    ]
+}
