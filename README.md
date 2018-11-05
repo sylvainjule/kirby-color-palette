@@ -177,7 +177,7 @@ palette:
 
 #### 5.1. If `options` is an array of simple colors
 
-The field will only stored the selected color.
+The field will only store the selected color.
 
 ```php
 $selected = $page->palette(); #(string)
@@ -226,5 +226,4 @@ MIT
 
 ## 8. To-do
 
-- [ ] Replace `$thumb->url()` with `$thumb->root()`(or `$thumb->mediaRoot()`) once [the thumb issue](https://github.com/k-next/kirby/issues/1015) is fixed 
-- [ ] Look for images in both `index()` and `drafts()`, once [the collection issue](https://github.com/k-next/kirby/issues/1097) is fixed 
+- [ ] Replace `$thumb->url()` with `$thumb->root()`(or `$thumb->mediaRoot()`) once [the thumb issue](https://github.com/k-next/kirby/issues/1015) is fixed

@@ -30,6 +30,9 @@ return array(
             }
 		),
 		'computed' => array(
+			'uri' => function() {
+				return $this->model()->uri();
+			},
 			'parent' => function () {
 	            return $this->model()->apiUrl(true);
 	        },

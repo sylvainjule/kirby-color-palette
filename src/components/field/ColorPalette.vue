@@ -51,6 +51,7 @@ export default {
         default: { type: [String, Boolean] },
         extractor: Boolean,
         limit: Number,
+        uri: String,
 
         // general options
         label: String,
@@ -149,8 +150,9 @@ export default {
             })
         },
         processImage(file) {
+            console.log(file)
             this.loading = true
-            this.$api.get('color-palette/extract-image-colors', {id: file[0].id, limit: this.limit})
+            this.$api.get('color-palette/extract-image-colors', {filename: file[0].filename, uri: this.uri, limit: this.limit})
                 .then(response => {
                     this.palette  = response.colors
                     this.value    = ['', this.palette]

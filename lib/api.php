@@ -6,10 +6,11 @@ return array(
 	        'pattern' => 'color-palette/extract-image-colors',
 	        'method'  => 'GET',
 	        'action'  => function() {
-	            $id            = get('id');
-	            $limit         = get('limit');
-	            $filesIndex    = SylvainJule\ColorPalette::getFilesIndex();
-	            $file          = $filesIndex->find($id);
+	            $filename = get('filename');
+	            $uri      = get('uri');
+	            $limit    = get('limit');
+	            $page     = site()->childrenAndDrafts()->find($uri);
+	            $file     = $page->file($filename);
 
 	        	try {
 	        		$colors = SylvainJule\ColorPalette::extractColor($file, $limit);
