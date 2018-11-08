@@ -12,6 +12,7 @@ Kirby::plugin('sylvainjule/color-palette', array(
 	'api'    => require_once __DIR__ . '/lib/api.php',
     'translations' => array(
         'en' => require_once __DIR__ . '/lib/languages/en.php',
+        'de' => require_once __DIR__ . '/lib/languages/de.php',
         'fr' => require_once __DIR__ . '/lib/languages/fr.php',
     ),
 ));
