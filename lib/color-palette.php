@@ -9,9 +9,9 @@ use League\ColorExtractor\Palette;
 class ColorPalette {
 
 	public static function extractColor($image, $limit = 10, $size = 400, $fallbackColor = '#ffffff') {
-		$thumb     = $image->resize($size);
-		$url       = $thumb->url();
-		$palette   = Palette::fromFilename($url, Color::fromHexToInt($fallbackColor));
+		$thumb     = $image->resize($size)->save();
+		$root      = $thumb->root();
+		$palette   = Palette::fromFilename($root, Color::fromHexToInt($fallbackColor));
 		$extractor = new Extractor($palette);
 		$colors    = $extractor->extract($limit);
 
