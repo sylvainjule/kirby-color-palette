@@ -131,7 +131,7 @@ The default value to be used if the field has no set value. Will be ignored if i
 #simple colors
 palette:
   type: color-palette
-  default: '#00FF00'
+  default: '#135fdc'
   options:
     - '#135fdc'
     - '#f6917e'
