@@ -156,18 +156,13 @@ export default {
                     this.loading = false
                 })
         },
-input(color = false) {
-    if(color) {
-        if(this.unselect && this.isValue(color)) {
-            this.value = this.extractor ? ['', this.extracted] : ''
+        input(color = false) {
+            if(color) {
+                if(this.unselect && this.isValue(color)) color = ''
+                this.value = this.extractor ? [color, this.extracted] : color
+            }
+            this.$emit('input', this.value)
         }
-        else {
-            this.value = this.extractor ? [color, this.extracted] : color
-        }
-    }
-
-    this.$emit('input', this.value)
-}
     }
 }
 </script>
