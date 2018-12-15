@@ -43,9 +43,9 @@
 				border: 4px solid white;
 				outline: 1px solid #cccccc;
 
-				/* Unset?
+				/* Unselect?
 				------------------------*/
-				&.unset {
+				&.unselect {
 					pointer-events: auto;
 					cursor: pointer;
 				}

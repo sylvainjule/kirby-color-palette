@@ -113,14 +113,14 @@ palette:
   size: medium
 ```
 
-#### 3.4. `unset`
+#### 3.4. `unselect`
 
-If set to `true`, selected colors can be un-selected an rest the field to an empty value. Default is `false`.
+If set to `true`, selected colors can be unselected. Default is `false`.
 
 ```yaml
 palette:
   type: color-palette
-  unset: false
+  unselect: false
 ```
 
 #### 3.5. `default`

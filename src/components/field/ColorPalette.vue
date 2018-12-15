@@ -20,7 +20,7 @@
         </div>
         <div v-else class="color-palette_input">
             <ul class="color-palette_input-list">
-                <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unset': unset}]" @click="input(color)">
+                <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unselect': unselect}]" @click="input(color)">
                     <div class="color-palette_input-color" :style="inlineStyle(color)"></div>
                 </li>
             </ul>
@@ -40,7 +40,7 @@ export default {
         options: { type: [Object, Array] },
         display: String,
         size: String,
-        unset: Boolean,
+        unselect: Boolean,
         default: { type: [String, Boolean] },
         extractor: Boolean,
         limit: Number,
@@ -51,7 +51,7 @@ export default {
         disabled: Boolean,
         help: String,
         parent: String,
-        value: Array,
+        value: [String, Array],
         name: [String, Number],
         required: Boolean,
         type: String
@@ -143,7 +143,6 @@ export default {
             })
         },
         processImage(file) {
-            console.log(file)
             this.loading = true
             this.$api.get('color-palette/extract-image-colors', {filename: file[0].filename, uri: this.uri, limit: this.limit})
                 .then(response => {
@@ -157,18 +156,18 @@ export default {
                     this.loading = false
                 })
         },
-        input(color = false) {
-            if(color) {
-                if(this.unset && this.isValue(color)) {
-                    this.value = this.extractor ? ['', this.extracted] : ''
-                }
-                else {
-                    this.value = this.extractor ? [color, this.extracted] : color
-                }
-            }
-
-            this.$emit('input', this.value)
+input(color = false) {
+    if(color) {
+        if(this.unselect && this.isValue(color)) {
+            this.value = this.extractor ? ['', this.extracted] : ''
         }
+        else {
+            this.value = this.extractor ? [color, this.extracted] : color
+        }
+    }
+
+    this.$emit('input', this.value)
+}
     }
 }
 </script>

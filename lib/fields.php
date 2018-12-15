@@ -12,8 +12,8 @@ return array(
 			'size' => function ($size = 'medium') {
                 return $size;
             },
-			'unset' => function ($unset = false) {
-                return $unset;
+			'unselect' => function ($unselect = false) {
+                return $unselect;
             },
             'default' => function($default = false) {
             	return $default;
