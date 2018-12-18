@@ -10,7 +10,7 @@
         <k-box v-if="emptyOptions" theme="info" class="color-palette_empty-options">
             {{ $t('palette.empty.options') }}
         </k-box>
-        <k-empty v-else-if="emptyPalette" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector"> 
+        <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector"> 
             {{ $t('palette.empty.palette') }}
         </k-empty>
         <div v-else-if="loadingPalette" class="color-palette_empty-loading">
