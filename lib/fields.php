@@ -36,6 +36,9 @@ return array(
 			'parent' => function () {
 	            return $this->model()->apiUrl(true);
 	        },
+			'files' => function () {
+	            return $this->model()->images();
+	        },
 		),
     ),
 );

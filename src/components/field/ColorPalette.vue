@@ -45,6 +45,7 @@ export default {
         extractor: Boolean,
         limit: Number,
         uri: String,
+        endpoints: Object,
 
         // general options
         label: String,
@@ -137,10 +138,16 @@ export default {
             return true;
         },
         openSelector() {
-            this.$refs.selector.open({
-                multiple: false,
-                parent: this.parent,
-            })
+            this.$api.get('color-palette/get-files', {uri: this.uri})
+                .then(files => {
+                    this.$refs.selector.open(files, {
+max: false,
+                        multiple: false,
+                    })
+                })
+                .catch(() => {
+                    this.$store.dispatch("notification/error", "The files query does not seem to be correct");
+                });
         },
         processImage(file) {
             this.loading = true
