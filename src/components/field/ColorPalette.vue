@@ -37,11 +37,11 @@ export default {
         }
     },
     props: {
-        options: { type: [Object, Array] },
+        options: [Object, Array],
         display: String,
         size: String,
         unselect: Boolean,
-        default: { type: [String, Boolean] },
+        default: [String, Boolean],
         extractor: Boolean,
         limit: Number,
         uri: String,
@@ -94,7 +94,17 @@ export default {
     },
     methods: {
         isValue(color) {
-            if(this.isObject(color)) return this.selected == color || this.isEquivalent(this.selected, color)
+            if(this.isObject(color)) {
+                if(this.selected == color) return true
+                else {
+                    if(this.isObject(this.selected)) {
+                        return this.isEquivalent(this.selected, color)
+                    }
+                    else {
+                        return false
+                    }
+                }
+            }
             return this.selected == color 
         },
         inlineStyle(color) {
@@ -117,7 +127,7 @@ export default {
             return typeof color === 'string'
         },
         isObject(color) {
-            return color !== null && typeof color === 'object'
+            return color !== null && color !== undefined && typeof color === 'object'
         },
         isEquivalent(a, b) {
             let aKeys = Object.keys(a);
@@ -141,7 +151,7 @@ export default {
             this.$api.get('color-palette/get-files', {uri: this.uri})
                 .then(files => {
                     this.$refs.selector.open(files, {
-max: false,
+                        max: false,
                         multiple: false,
                     })
                 })
@@ -171,7 +181,7 @@ max: false,
             this.$emit('input', this.value)
         }
     }
-}
+};
 </script>
 
 <style lang="scss">
