@@ -8,6 +8,8 @@ A color palette displayed in the panel, helping you pick predefined colors / pal
 
 ## Overview
 
+> This plugin is completely free and published under the MIT license. However, if you are using it in a commercial project and want to help me keep up with maintenance, you can purchase your license(s) through [my affiliate link](https://a.paddle.com/v2/click/1129/36369?link=1170).
+
 - [1. Installation](#1-installation)
 - [2. Setup](#2-setup)
 - [3. Configuration](#3-configuration)
