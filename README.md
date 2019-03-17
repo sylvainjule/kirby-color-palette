@@ -225,7 +225,3 @@ MIT
 ## 7. Credits
 
 - K2 version: [Color list](https://github.com/Thiousi/kirby-color-list) by [@Thiousi](https://github.com/Thiousi)
-
-## 8. To-do
-
-- [ ] Replace `$thumb->url()` with `$thumb->root()`(or `$thumb->mediaRoot()`) once [the thumb issue](https://github.com/k-next/kirby/issues/1015) is fixed
