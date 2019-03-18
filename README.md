@@ -89,6 +89,31 @@ palette:
     ...
 ```
 
+##### • Dynamic options
+
+You can set dynamic options / query your options from a different field. Just make sure the `value` return a CSS-valid color.
+
+For example with a structure field:
+
+```yaml
+palette:
+  type: color-palette
+  options: query
+  query:
+    fetch: page.mycolors.toStructure
+    value: "{{ structureItem.color }}"
+
+...
+
+mycolors:
+  type: structure
+  fields:
+    color:
+      type: text
+```
+
+
+
 #### 3.2. `display`
 
 ![screenshot-display](https://user-images.githubusercontent.com/14079751/47905300-117a9e80-de87-11e8-8853-5b328b993439.jpg)

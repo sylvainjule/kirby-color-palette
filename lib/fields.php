@@ -2,6 +2,7 @@
 
 return array(
 	'color-palette' => array(
+		'extends'  => 'radio',
 		'props'    => array(
 			'options' => function ($options = []) {
                 return $options;
@@ -46,6 +47,10 @@ return array(
 	        	$options = $this->options;
 	        	$cache   = kirby()->cache('sylvainjule.color-palette');
 
+	        	if($options == 'query') {
+	        		return $this->getOptions();
+	        	}
+
 	        	if($this->autotemplate) {
 	        		if($image = $this->model()->images()->template($this->autotemplate)->first()) {
 	        			if($image->filename() == $cache->get('image.filename')) {
@@ -59,7 +64,13 @@ return array(
 	        		}
 	        	}
 	        	return $options;
-	        }
+	        },
+	        'default' => function() {
+	        	return $this->default;
+	        },
+	        'value' => function () {
+            	return $this->value;
+       		}
 		),
     ),
 );

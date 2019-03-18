@@ -81,6 +81,9 @@ export default {
         },
         colors() {
             if(this.extractor) return this.extracted.length ? this.extracted : false
+            if(this.isQueryOptions(this.options)) {
+                return this.options.map(el => { return el['value'] })
+            }
             else return this.options
         }
     },
@@ -132,6 +135,14 @@ export default {
         },
         isObject(color) {
             return color !== null && color !== undefined && typeof color === 'object'
+        },
+        isQueryOptions(options) {
+            if(!options.length) return false
+            let option = options[0]
+            return this.isObject(option) &&
+                   Object.keys(option).length == 2 &&
+                   Object.keys(option).includes('text') &&
+                   Object.keys(option).includes('value')
         },
         isEquivalent(a, b) {
             let aKeys = Object.keys(a);
