@@ -155,6 +155,8 @@ palette:
 
 ## 4. Extract palette from an image
 
+#### 4.1. Select manually which image to extract colors from
+
 You can extract a color palette from an image file by activating the `extractor` option. It will override the manual options, if specified. Default is `false`.
 
 ```yaml
@@ -164,7 +166,24 @@ palette:
   # no need for options anymore
 ```
 
-The maximum number of extracted colors can be set with the `limit` option. Default is `10`.
+#### 4.2. Automatically extract colors when an image matches a template
+
+Alternatively, you can make use of the `autotemplate` option (do not add the above `extractor` option in this case).
+
+If the page has at least 1 image matching the given template (if 2+ are found, the field will use the first one), options will automatically be extracted from it on load.
+
+Note that **there is no realtime-sync**, the page needs to be reloaded in order for the plugin to detect a newly added image. The best way of achieving this without having to manually refresh the page is to place this field and the files section under two different tabs.
+
+```yaml
+palette:
+  type: color-palette
+  autotemplate: cover
+  # no need for options anymore
+```
+
+#### 4.3. Limit
+
+In both cases, the maximum number of extracted colors can be set with the `limit` option. Default is `10`.
 
 ```yaml
 palette:

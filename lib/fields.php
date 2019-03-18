@@ -28,6 +28,9 @@ return array(
             	$yaml = Yaml::decode($value);
                 return count($yaml) ? $yaml : $value;
             },
+            'autotemplate' > function($autotemplate = null) {
+            	return $autotemplate;
+            }
 		),
 		'computed' => array(
 			'uri' => function() {
@@ -39,6 +42,24 @@ return array(
 			'files' => function () {
 	            return $this->model()->images();
 	        },
+	        'options' => function() {
+	        	$options = $this->options;
+	        	$cache   = kirby()->cache('sylvainjule.color-palette');
+
+	        	if($this->autotemplate) {
+	        		if($image = $this->model()->images()->template($this->autotemplate)->first()) {
+	        			if($image->filename() == $cache->get('image.filename')) {
+	        				$options = $cache->get('image.options');
+	        			}
+	        			else {
+		        			$options = SylvainJule\ColorPalette::extractColor($image, $this->limit);
+		        			$cache->set('image.filename', $image->filename());
+		        			$cache->set('image.options', $options);
+		        		}
+	        		}
+	        	}
+	        	return $options;
+	        }
 		),
     ),
 );

@@ -8,7 +8,7 @@
         </template>
 
         <k-box v-if="emptyOptions" theme="info" class="color-palette_empty-options">
-            {{ $t('palette.empty.options') }}
+            {{ emptyOptionsPlaceholder }}
         </k-box>
         <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector"> 
             {{ $t('palette.empty.palette') }}
@@ -46,6 +46,7 @@ export default {
         limit: Number,
         uri: String,
         endpoints: Object,
+        autotemplate: String,
 
         // general options
         label: String,
@@ -68,6 +69,9 @@ export default {
         emptyOptions() {
             let options = this.isObject(this.options) ? Object.keys(this.options).length : this.options.length
             return !options && !this.extractor
+        },
+        emptyOptionsPlaceholder() {
+            return this.autotemplate ? this.$t('palette.empty.template') : this.$t('palette.empty.options')
         },
         emptyPalette() {
             return this.extractor && !this.extracted.length && !this.loading
