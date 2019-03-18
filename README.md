@@ -182,13 +182,22 @@ palette:
 
 #### 4.1. Select manually which image to extract colors from
 
-You can extract a color palette from an image file by activating the `extractor` option. It will override the manual options, if specified. Default is `false`.
+You can extract a color palette from a page's image file by activating the `extractor` option. It will override the manual options, if specified. Default is `false`.
 
 ```yaml
 palette:
   type: color-palette
   extractor: true
   # no need for options anymore
+```
+
+You can restrict the choices to a specific file template with the `template` option:
+
+```yaml
+palette:
+  type: color-palette
+  extractor: true
+  template: cover
 ```
 
 #### 4.2. Automatically extract colors when an image matches a template

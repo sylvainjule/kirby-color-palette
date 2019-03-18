@@ -47,6 +47,7 @@ export default {
         uri: String,
         endpoints: Object,
         autotemplate: String,
+        template: String,
 
         // general options
         label: String,
@@ -167,7 +168,7 @@ export default {
             return true;
         },
         openSelector() {
-            this.$api.get('color-palette/get-files', {uri: this.uri})
+            this.$api.get('color-palette/get-files', {uri: this.uri, template: this.template})
                 .then(files => {
                     this.$refs.selector.open(files, {
                         max: false,

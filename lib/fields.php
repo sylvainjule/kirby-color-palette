@@ -29,6 +29,9 @@ return array(
             	$yaml = Yaml::decode($value);
                 return count($yaml) ? $yaml : $value;
             },
+            'template' > function($template = null) {
+            	return $template;
+            },
             'autotemplate' > function($autotemplate = null) {
             	return $autotemplate;
             }

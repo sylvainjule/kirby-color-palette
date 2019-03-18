@@ -7,8 +7,9 @@ return array(
 	        'method'  => 'GET',
             'action' => function () {
                 $uri      = get('uri');
+                $template = get('template');
 	            $page     = kirby()->page($uri);
-	            $files    = $page->images();
+	            $files    = $template !== 'undefined' ? $page->images()->template($template) : $page->images();
                 $data     = [];
 
                 $thumb = array(
