@@ -184,7 +184,6 @@ export default {
                 if(this.isObject(this.value)){
                     this.value['key'] = index
                 }
-                console.log(this.value)
             }
             this.$emit('input', this.value)
         }
