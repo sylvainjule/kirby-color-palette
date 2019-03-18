@@ -91,7 +91,7 @@ palette:
 
 ##### • Dynamic options
 
-You can set dynamic options / query your options from a different field. Just make sure the `value` return a CSS-valid color.
+You can set dynamic options / query your options from a different field. Just make sure the `value` returns a CSS-valid color.
 
 For example with a structure field:
 
