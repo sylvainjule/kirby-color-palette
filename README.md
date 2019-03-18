@@ -182,7 +182,8 @@ palette:
 The field will only store the selected color.
 
 ```php
-$selected = $page->palette(); #(string)
+$selected = $page->palette();   #(Field object)
+$selected = $selected->value(); #(string)
 ```
 
 #### 5.2. If `options` is a structured color object
