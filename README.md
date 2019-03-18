@@ -205,6 +205,12 @@ $background = $palette['background']; #(string)
 $border     = $palette['border']; #(string)
 ```
 
+Note that in this case, the plugin automatically adds the key of the selected color, in case you'd want it to deal with custom classes, etc.
+
+```php
+$border     = $palette['key']; #(string)
+```
+
 #### 5.3. If the palette has been extracted from an image
 
 Both the selected color and the extracted palette are stored. The value of the field is an array you'll need to decode with the `yaml` method:

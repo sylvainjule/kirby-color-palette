@@ -27,7 +27,7 @@ return array(
             'value' => function ($value = null) {
             	$yaml = Yaml::decode($value);
                 return count($yaml) ? $yaml : $value;
-            }
+            },
 		),
 		'computed' => array(
 			'uri' => function() {

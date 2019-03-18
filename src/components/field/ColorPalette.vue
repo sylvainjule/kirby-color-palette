@@ -20,7 +20,7 @@
         </div>
         <div v-else class="color-palette_input">
             <ul class="color-palette_input-list">
-                <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unselect': unselect}]" @click="input(color)">
+                <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unselect': unselect}]" @click="input(color, index)">
                     <div class="color-palette_input-color" :style="inlineStyle(color)"></div>
                 </li>
             </ul>
@@ -133,6 +133,10 @@ export default {
             let aKeys = Object.keys(a);
             let bKeys = Object.keys(b);
 
+            // Make sure the selected option doesn't have its 'key' key
+            let keyIndex = aKeys.indexOf('key')
+            if(keyIndex !== -1) aKeys.splice(keyIndex, 1)
+
             // Different keys? not equivalent
             if (aKeys.length != bKeys.length) {
                 return false;
@@ -173,10 +177,14 @@ export default {
                     this.loading = false
                 })
         },
-        input(color = false) {
+        input(color = false, index) {
             if(color) {
                 if(this.unselect && this.isValue(color)) color = ''
                 this.value = this.extractor ? [color, this.extracted] : color
+                if(this.isObject(this.value)){
+                    this.value['key'] = index
+                }
+                console.log(this.value)
             }
             this.$emit('input', this.value)
         }
