@@ -18,7 +18,6 @@ fields:
   palette:
     label: Palette
     type: color-palette
-    unselect: true
     default: 'color-primary'
     options:
       color_primary:
