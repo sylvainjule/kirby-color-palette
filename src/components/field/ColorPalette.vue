@@ -10,7 +10,7 @@
         <k-box v-if="emptyOptions" theme="info" class="color-palette_empty-options">
             {{ emptyOptionsPlaceholder }}
         </k-box>
-        <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector"> 
+        <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector">
             {{ $t('palette.empty.palette') }}
         </k-empty>
         <div v-else-if="loadingPalette" class="color-palette_empty-loading">
@@ -103,7 +103,7 @@ export default {
     methods: {
         isValue(color) {
             if(this.isObject(color)) {
-                if(this.selected == color) return true
+                if(this.selected == color || this.selected == color['output']) return true
                 else {
                     if(this.isObject(this.selected)) {
                         return this.isEquivalent(this.selected, color)
@@ -113,7 +113,7 @@ export default {
                     }
                 }
             }
-            return this.selected == color 
+            return this.selected == color
         },
         inlineStyle(color) {
             // display: duo
@@ -198,7 +198,7 @@ export default {
                 if(this.unselect && this.isValue(color)) color = ''
                 this.value = this.extractor ? [color, this.extracted] : color
                 if(this.isObject(this.value)){
-                    this.value['key'] = index
+                    this.value = this.value['output']
                 }
             }
             this.$emit('input', this.value)

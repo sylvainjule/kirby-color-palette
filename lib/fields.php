@@ -26,8 +26,7 @@ return array(
             	return $limit;
             },
             'value' => function ($value = null) {
-            	$yaml = Yaml::decode($value);
-                return count($yaml) ? $yaml : $value;
+                return $value;
             },
             'template' > function($template = null) {
             	return $template;
@@ -48,6 +47,7 @@ return array(
 	        },
 	        'options' => function() {
 	        	$options = $this->options;
+                $page    = $this->model;
 	        	$cache   = kirby()->cache('sylvainjule.color-palette');
 
 	        	if($options == 'query') {
@@ -66,6 +66,12 @@ return array(
 		        		}
 	        		}
 	        	}
+
+                $options = array_map(function($el) use($page) {
+                    $el['background'] = $page->toString($el['background']);
+                    return $el;
+                }, $options);
+
 	        	return $options;
 	        },
 	        'default' => function() {
