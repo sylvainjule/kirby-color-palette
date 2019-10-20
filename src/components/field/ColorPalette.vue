@@ -21,7 +21,7 @@
         <div v-else class="color-palette_input">
             <ul class="color-palette_input-list">
                 <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unselect': unselect}]" @click="input(color, index)">
-                    <div class="color-palette_input-color" :style="inlineStyle(color)"></div>
+                    <div :class="['color-palette_input-color', 'color-palette-'+ index]" :data-tooltip="toTooltip(color)" :style="inlineStyle(color)"></div>
                 </li>
             </ul>
         </div>
@@ -122,6 +122,9 @@ export default {
             }
 
             return 'background:'+ this.firstColor(color)
+        },
+        toTooltip(color) {
+            return this.isObject(color) && color['tooltip'] ? color['tooltip'] : false
         },
         firstColor(color) {
             if(this.isString(color))      return color
