@@ -10,7 +10,7 @@
         <k-box v-if="emptyOptions" theme="info" class="color-palette_empty-options">
             {{ emptyOptionsPlaceholder }}
         </k-box>
-        <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector"> 
+        <k-empty v-else-if="emptyPalette" layout="custom" icon="image" :class="['color-palette_empty-palette', size]" @click="openSelector">
             {{ $t('palette.empty.palette') }}
         </k-empty>
         <div v-else-if="loadingPalette" class="color-palette_empty-loading">
@@ -21,7 +21,7 @@
         <div v-else class="color-palette_input">
             <ul class="color-palette_input-list">
                 <li v-for="(color, index) in colors" :class="[size, {'active': isValue(color)}, {'unselect': unselect}]" @click="input(color, index)">
-                    <div class="color-palette_input-color" :style="inlineStyle(color)"></div>
+                    <div class="color-palette_input-color" :data-tooltip="toTooltip(color)" :style="inlineStyle(color)"></div>
                 </li>
             </ul>
         </div>
@@ -113,7 +113,7 @@ export default {
                     }
                 }
             }
-            return this.selected == color 
+            return this.selected == color
         },
         inlineStyle(color) {
             // display: duo
@@ -122,6 +122,9 @@ export default {
             }
 
             return 'background:'+ this.firstColor(color)
+        },
+        toTooltip(color) {
+            return this.isObject(color) && color['tooltip'] ? color['tooltip'] : false
         },
         firstColor(color) {
             if(this.isString(color))      return color

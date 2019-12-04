@@ -72,7 +72,7 @@ palette:
 
 ##### • Structured color themes
 
-The field will use the first color of the object as the background-color. 
+The field will use the first color of the object as the background-color.
 
 ```yaml
 palette:
@@ -88,6 +88,20 @@ palette:
       text: white
     ...
 ```
+
+You can add tooltips to structured colors: any color with the `tooltip` key will show a tooltip on hover.
+
+```yaml
+...
+  options:
+    blue:
+      background: '#135fdc'
+      tooltip: This is a tooltip
+    ...
+```
+
+![screenshot-tooltip](https://user-images.githubusercontent.com/14079751/70157500-fbf12d00-16b5-11ea-8572-4877dbcb32e5.jpg)
+
 
 ##### • Dynamic options
 
