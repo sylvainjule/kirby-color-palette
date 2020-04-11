@@ -152,9 +152,11 @@ export default {
             let aKeys = Object.keys(a);
             let bKeys = Object.keys(b);
 
-            // Make sure the selected option doesn't have its 'key' key
-            let keyIndex = aKeys.indexOf('key')
-            if(keyIndex !== -1) aKeys.splice(keyIndex, 1)
+            // Make sure to compare without the keys
+            let aKeyIndex = aKeys.indexOf('key')
+            if(aKeyIndex !== -1) aKeys.splice(aKeyIndex, 1)
+            let bKeyIndex = bKeys.indexOf('key')
+            if(bKeyIndex !== -1) bKeys.splice(bKeyIndex, 1)
 
             // Different keys? not equivalent
             if (aKeys.length != bKeys.length) {
