@@ -1,4 +1,4 @@
-> This plugin is now archived in favor of the native `color` field in Kirby 5, whose [`mode` option](https://getkirby.com/docs/reference/panel/fields/color#modes) can be set to `options` with more dynamic possibilities. The ability to generate a color palette from an uploaded image has been migrated to the [Color Extractor](https://github.com/sylvainjule/kirby-colorextractor) plugin, and documented [in its README](https://github.com/sylvainjule/kirby-colorextractor?tab=readme-ov-file#5-palette-usage).
+> This plugin is now archived in favor of the native `color` field in Kirby 5, whose [`mode` option](https://getkirby.com/docs/reference/panel/fields/color#modes) can be set to `options` with more dynamic possibilities. The ability to generate a color palette from an uploaded image has been migrated to the [Color Extractor](https://github.com/sylvainjule/kirby-colorextractor) plugin, and documented [in its README](https://github.com/sylvainjule/kirby-colorextractor?tab=readme-ov-file#5-palette-usage). See also [this reply](https://github.com/sylvainjule/kirby-color-palette/issues/31#issuecomment-3156231226) about why I archived this plugin.
 > 
 <br/>
 
