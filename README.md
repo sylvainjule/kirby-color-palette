@@ -1,3 +1,7 @@
+> This plugin is now archived in favor of the native `color` field in Kirby 5, whose [`mode` option](https://getkirby.com/docs/reference/panel/fields/color#modes) can be set to `options` with more dynamic possibilities. The ability to generate a color palette from an uploaded image has been migrated to the [Color Extractor](https://github.com/sylvainjule/kirby-colorextractor) plugin, and documented [in its README](https://github.com/sylvainjule/kirby-colorextractor?tab=readme-ov-file#5-palette-usage).
+> 
+<br/>
+
 # Kirby Color-Palette
 
 A color palette displayed in the panel, helping you pick predefined colors / palettes.
@@ -8,7 +12,7 @@ A color palette displayed in the panel, helping you pick predefined colors / pal
 
 ## Overview
 
-> This plugin is completely free and published under the MIT license. However, if you are using it in a commercial project and want to help me keep up with maintenance, please consider [making a donation of your choice](https://www.paypal.me/sylvainjl) or purchasing your license(s) through [my affiliate link](https://a.paddle.com/v2/click/1129/36369?link=1170).
+> This plugin is completely free and published under the MIT license. However, if you are using it in a commercial project and want to help me keep up with maintenance, you can consider [making a donation of your choice](https://www.paypal.me/sylvainjl).
 
 - [1. Installation](#1-installation)
 - [2. Setup](#2-setup)
